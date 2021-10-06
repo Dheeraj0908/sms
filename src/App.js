@@ -22,7 +22,7 @@ class App extends React.Component {
   onSignInSubmit = (e) => {
     e.preventDefault()
     this.configureCaptcha()
-    const phoneNumber = "+91" + this.state.mobile
+    const phoneNumber = this.state.mobile
     console.log(phoneNumber)
     const appVerifier = window.recaptchaVerifier;
     firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
@@ -59,7 +59,7 @@ class App extends React.Component {
         <h2>Login Form</h2>
         <form onSubmit={this.onSignInSubmit}>
           <div id="sign-in-button"></div>
-          <input type="number" name="mobile" placeholder="Mobile number" required onChange={this.handleChange}/>
+          <input type="text" name="mobile" placeholder="Mobile number" required onChange={this.handleChange}/>
           <button type="submit">Submit</button>
         </form>
 
